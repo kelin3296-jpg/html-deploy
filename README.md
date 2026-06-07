@@ -1,5 +1,10 @@
 # Pages Deploy
 
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+![Skill](https://img.shields.io/badge/skill-SKILL.md-blue.svg)
+![Cloudflare Pages](https://img.shields.io/badge/cloudflare-pages-f38020.svg)
+![Agent Compatible](https://img.shields.io/badge/agent--compatible-Codex%20%7C%20Claude%20Code%20%7C%20Hermes%20%7C%20OpenClaw-111827.svg)
+
 An agent-ready deployment skill for turning local static HTML into a stable public Cloudflare Pages URL.
 
 Pages Deploy is built for agents that should work from local files, CLI, and verification instead of clicking through a web app.
@@ -10,6 +15,26 @@ Compatible targets:
 - Claude Code
 - Hermes
 - OpenClaw
+
+## Quick Start
+
+1. Install the skill into your local agent skills directory.
+
+```bash
+~/.codex/skills/pages-deploy
+```
+
+2. Trigger it with a direct prompt.
+
+```text
+Use $pages-deploy to publish the HTML in ./dist and give me the stable production URL.
+```
+
+3. Expect the agent to deploy with Cloudflare Pages, verify the live page, and return a stable URL like:
+
+```text
+https://your-project.pages.dev
+```
 
 ## Value
 
