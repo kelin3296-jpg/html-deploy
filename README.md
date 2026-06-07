@@ -1,8 +1,8 @@
 # Pages Deploy
 
-Deploy local static HTML to Cloudflare Pages with a no-UI workflow, then return a stable public `pages.dev` URL.
+An agent-ready deployment skill for turning local static HTML into a stable public Cloudflare Pages URL.
 
-This repository packages that workflow as a reusable agent skill. It is designed for agents that should work from local files, CLI, and verification instead of clicking through a web app.
+Pages Deploy is built for agents that should work from local files, CLI, and verification instead of clicking through a web app.
 
 Compatible targets:
 
@@ -11,23 +11,16 @@ Compatible targets:
 - Hermes
 - OpenClaw
 
-## Why this exists
+## Value
 
-Most static-site deployment guides assume a human will:
+Pages Deploy gives an agent one clean job:
 
-- open a web UI
-- click through project creation
-- upload or connect files
-- manually inspect the result
+- take a local static site
+- publish it to Cloudflare Pages
+- keep the public URL stable when needed
+- verify the live result before reporting success
 
-This skill assumes the opposite:
-
-- the agent can generate or edit the final HTML locally
-- the agent can deploy with `wrangler`
-- the agent can verify the production page automatically
-- the agent should report the stable production URL, not a random preview link
-
-## What it does
+## Features
 
 - Publishes a local HTML/CSS/JS folder to Cloudflare Pages
 - Reuses an existing Pages project when the public URL should stay unchanged
@@ -44,7 +37,7 @@ In practice:
 - Claude Code, Hermes, and OpenClaw can reuse the same instructions, references, prompts, and workflow design
 - if a target framework uses a different plugin or skill manifest format, keep `SKILL.md` as the source of truth and adapt the wrapper only
 
-## Best for
+## Use Cases
 
 Use this skill when you want an agent to handle requests like:
 
@@ -171,7 +164,7 @@ This skill is opinionated about three things:
 
 ## Positioning
 
-This project is not a Cloudflare Pages wrapper for one specific coding agent. It is a reusable deployment workflow package for AI agents that generate or edit HTML locally and then need to publish it safely with a stable public link.
+This project is not a Cloudflare Pages wrapper for one specific coding agent. It is a reusable deployment workflow package for AI agents that generate or edit HTML locally and then need to publish it with a safe, repeatable, stable-link workflow.
 
 ## License
 
