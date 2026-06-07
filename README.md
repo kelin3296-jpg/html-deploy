@@ -195,6 +195,7 @@ This skill is opinionated about three things:
 ## Reference files
 
 - [SKILL.md](SKILL.md): agent-facing instructions
+- [TESTING.md](TESTING.md): static validation and live deployment test flow
 - [references/workflow.md](references/workflow.md): deployment flow and validation
 - [references/cloudflare-token-setup.md](references/cloudflare-token-setup.md): token application and safe local setup
 - [references/examples.md](references/examples.md): request and response examples
