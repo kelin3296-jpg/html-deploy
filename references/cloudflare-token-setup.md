@@ -27,7 +27,7 @@ Official token page:
 2. Sign in to Cloudflare if prompted.
 3. Select `Create Token`.
 4. Choose `Create Custom Token` when the user wants the narrowest practical scope.
-5. Name the token, for example `pages-deploy`.
+5. Name the token, for example `html-deploy`.
 6. Add the permissions listed below.
 7. Limit the account scope to the intended Cloudflare account.
 8. Create the token and copy it once.
