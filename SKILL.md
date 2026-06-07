@@ -1,9 +1,9 @@
 ---
-name: pages-deploy
+name: html-deploy
 description: Generate or refine static HTML and deploy it to Cloudflare Pages using an OpenDesign-style no-UI workflow. Use when the user wants a local HTML/CSS/JS output turned into a shareable `*.pages.dev` link, wants to update an existing Pages project while keeping the public URL stable, or asks how to automate OpenDesign-style deployment through files, CLI, and API instead of clicking through a web UI.
 ---
 
-# Pages Deploy
+# HTML Deploy
 
 Deploy local static output to a stable public Cloudflare Pages URL without relying on a browser UI.
 
