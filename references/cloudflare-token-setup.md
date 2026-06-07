@@ -7,8 +7,12 @@ Use this reference when the user needs to create credentials for Cloudflare Page
 For the workflow in this skill, the user typically needs:
 
 - a Cloudflare account
-- an API token with Pages-related permissions
+- an API token with Cloudflare Pages permissions
 - the Cloudflare Account ID for the target account
+
+Official token page:
+
+- https://dash.cloudflare.com/profile/api-tokens
 
 ## Safe guidance rules
 
@@ -19,22 +23,44 @@ For the workflow in this skill, the user typically needs:
 
 ## Token application path
 
-1. Sign in to the Cloudflare dashboard.
-2. Open the user profile menu.
-3. Go to `My Profile`.
-4. Open the `API Tokens` section.
-5. Choose `Create Token`.
+1. Open https://dash.cloudflare.com/profile/api-tokens.
+2. Sign in to Cloudflare if prompted.
+3. Select `Create Token`.
+4. Choose `Create Custom Token` when the user wants the narrowest practical scope.
+5. Name the token, for example `pages-deploy`.
+6. Add the permissions listed below.
+7. Limit the account scope to the intended Cloudflare account.
+8. Create the token and copy it once.
 
 ## Recommended token scope
 
 Use the narrowest token that supports Pages deployment for the intended account.
 
-At minimum, guide the user to review:
+For this skill's normal deployment workflow, use:
 
-- account scope for the correct Cloudflare account
-- Pages permissions needed for project creation and deployment
+| Scope | Permission group | Access |
+| --- | --- | --- |
+| Account | `Cloudflare Pages` | `Edit` |
 
-If the user is unsure which exact permission preset to choose, tell them to start from the Cloudflare Pages deployment documentation and avoid granting broader account permissions than necessary.
+This is the key permission Cloudflare documents for custom tokens that use the Pages API.
+
+For read-only inspection, deployment listing, or diagnostics, `Pages Read` is enough. For deployment and project creation, prefer `Cloudflare Pages: Edit`.
+
+Resource scope:
+
+- Include only the target account.
+- Do not grant access to all accounts unless the user intentionally wants cross-account deployment.
+- Do not add zone-level DNS permissions unless the workflow also needs custom domain or DNS changes.
+
+Optional permissions:
+
+- Custom domain binding may require additional domain or DNS permissions depending on the exact flow.
+- This skill's default `pages.dev` deployment does not require DNS edit permissions.
+
+Official references:
+
+- Cloudflare Pages API: https://developers.cloudflare.com/pages/configuration/api/
+- Cloudflare API token permissions: https://developers.cloudflare.com/fundamentals/api/reference/permissions/
 
 ## Account ID lookup
 
@@ -54,11 +80,18 @@ export CLOUDFLARE_ACCOUNT_ID="your-account-id-here"
 
 These values are placeholders only. They should be set locally and never committed.
 
+For one-off terminal sessions, export them in the shell before running `wrangler`.
+
+For persistent local use, store them in a private local config or shell profile that is not committed to Git.
+
+For agent workflows, pass them through the environment. Do not paste the real token into a prompt unless the runtime is explicitly trusted for secrets.
+
 ## What to tell the user
 
 Keep the explanation short and practical:
 
 - where to click
 - what to create
+- which permission to select
 - how to store it safely
 - how to avoid leaking it into GitHub
