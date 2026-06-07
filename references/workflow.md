@@ -29,6 +29,10 @@ Suggested environment variables:
 
 If the user does not have a token yet, send them to [cloudflare-token-setup.md](cloudflare-token-setup.md) instead of inventing placeholders that look real.
 
+Default token permission for deployment:
+
+- `Account -> Cloudflare Pages -> Edit`
+
 ### 3. Decide whether to reuse or create a project
 
 - Reuse the same Pages project when updating an existing deliverable.
