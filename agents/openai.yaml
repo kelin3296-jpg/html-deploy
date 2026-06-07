@@ -1,0 +1,7 @@
+interface:
+  display_name: "OpenDesign Pages Deploy"
+  short_description: "Deploy local HTML to Cloudflare Pages"
+  default_prompt: "Use $open-design-cloudflare-pages-deploy to publish local static HTML to a stable Cloudflare Pages production URL."
+
+policy:
+  allow_implicit_invocation: true
