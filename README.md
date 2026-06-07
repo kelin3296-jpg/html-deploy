@@ -1,4 +1,4 @@
-# Pages Deploy
+# HTML Deploy
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 ![Skill](https://img.shields.io/badge/skill-SKILL.md-blue.svg)
@@ -7,7 +7,7 @@
 
 An agent-ready deployment skill for turning local static HTML into a stable public Cloudflare Pages URL.
 
-Pages Deploy is built for agents that should work from local files, CLI, and verification instead of clicking through a web app.
+HTML Deploy is built for agents that should work from local files, CLI, and verification instead of clicking through a web app.
 
 Compatible targets:
 
@@ -21,13 +21,13 @@ Compatible targets:
 1. Install the skill into your local agent skills directory.
 
 ```bash
-~/.codex/skills/pages-deploy
+~/.codex/skills/html-deploy
 ```
 
 2. Trigger it with a direct prompt.
 
 ```text
-Use $pages-deploy to publish the HTML in ./dist and give me the stable production URL.
+Use $html-deploy to publish the HTML in ./dist and give me the stable production URL.
 ```
 
 3. Expect the agent to deploy with Cloudflare Pages, verify the live page, and return a stable URL like:
@@ -38,7 +38,7 @@ https://your-project.pages.dev
 
 ## Value
 
-Pages Deploy gives an agent one clean job:
+HTML Deploy gives an agent one clean job:
 
 - take a local static site
 - publish it to Cloudflare Pages
@@ -80,7 +80,7 @@ Copy or symlink this repository into your Codex skills directory.
 Common location:
 
 ```bash
-~/.codex/skills/pages-deploy
+~/.codex/skills/html-deploy
 ```
 
 ### Other agent runtimes
@@ -97,7 +97,7 @@ For Claude Code, Hermes, and OpenClaw:
 If you want another agent to install this skill for you, send it this prompt:
 
 ```text
-Install the skill from https://github.com/kelin3296-jpg/pages-deploy into my local agent skills directory. Clone the repository, keep SKILL.md and the references folder together, verify that SKILL.md and agents/openai.yaml exist, and confirm the skill can be discovered or referenced locally by my agent runtime.
+Install the skill from https://github.com/kelin3296-jpg/html-deploy into my local agent skills directory. Clone the repository, keep SKILL.md and the references folder together, verify that SKILL.md and agents/openai.yaml exist, and confirm the skill can be discovered or referenced locally by my agent runtime.
 ```
 
 If the target agent supports symlinks and you prefer that setup, replace the clone step with a symlink into the same destination.
@@ -109,18 +109,18 @@ After installation, ask the agent for the task directly, or invoke the skill by 
 Examples:
 
 ```text
-Use $pages-deploy to publish the HTML in ./dist and give me the stable production URL.
+Use $html-deploy to publish the HTML in ./dist and give me the stable production URL.
 ```
 
 ```text
-Use $pages-deploy to update my existing Cloudflare Pages project without changing the public link.
+Use $html-deploy to update my existing Cloudflare Pages project without changing the public link.
 ```
 
 ## Example conversation
 
 ```text
 User:
-Use $pages-deploy to publish the static site in ./site.
+Use $html-deploy to publish the static site in ./site.
 Project name should be demo-landing-pages.
 If Cloudflare credentials are missing, tell me exactly what I need to apply for.
 
@@ -130,7 +130,7 @@ I’ll deploy the local static site in ./site to Cloudflare Pages, reuse the pro
 
 ```text
 User:
-Use $pages-deploy to redeploy this existing project, keep the same pages.dev URL, and verify the new copy is live.
+Use $html-deploy to redeploy this existing project, keep the same pages.dev URL, and verify the new copy is live.
 
 Agent:
 I’ll redeploy into the existing Pages project so the production URL stays unchanged, then check the live page before reporting completion.
@@ -145,6 +145,18 @@ This skill assumes:
 - Cloudflare credentials are available at runtime through environment variables or a protected local config
 
 See [references/cloudflare-token-setup.md](references/cloudflare-token-setup.md) for a safe token application flow.
+
+Cloudflare API Token page:
+
+```text
+https://dash.cloudflare.com/profile/api-tokens
+```
+
+Recommended custom token permission:
+
+```text
+Account -> Cloudflare Pages -> Edit
+```
 
 Common environment variables:
 
@@ -166,7 +178,7 @@ This skill is opinionated about three things:
 ## Repository structure
 
 ```text
- pages-deploy/
+ html-deploy/
 ├── SKILL.md
 ├── README.md
 ├── LICENSE
