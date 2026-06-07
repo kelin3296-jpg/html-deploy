@@ -43,6 +43,16 @@ Common location:
 ~/.codex/skills/open-design-cloudflare-pages-deploy
 ```
 
+## Agent install prompt
+
+If you want another agent to install this skill for you, send it this prompt:
+
+```text
+Install the skill from https://github.com/kelin3296-jpg/open-design-cloudflare-pages-deploy into my Codex skills directory. Clone the repository into ~/.codex/skills/open-design-cloudflare-pages-deploy, verify that SKILL.md and agents/openai.yaml exist, and confirm the skill can be discovered locally.
+```
+
+If the target agent supports local symlinks and you prefer that setup, replace the clone step with a symlink into the same destination.
+
 ## Runtime expectations
 
 This skill assumes:
